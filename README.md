@@ -4,7 +4,6 @@ Desarrollo de software seguro - guia 5
 # Crear base de datos
 create database GestionAcad;
 use GestionAcad;
-# Crear tabla profesores
 create table profesor(
 id integer primary key auto_increment,
 cedula int unique,
