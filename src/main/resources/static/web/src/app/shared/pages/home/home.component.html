@@ -1,0 +1,115 @@
+<div class="container">
+  <br>
+  <h2>Index</h2>
+  <br>
+  <a class="link" (click)="openModalCreate()">Create new</a>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Cedula</th>
+        <th scope="col">Nombres</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Facultad</th>
+        <th scope="col">Email</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let profesor of profesores; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ profesor.cedula }}</td>
+        <td>{{ profesor.nombre }}</td>
+        <td>{{ profesor.apellido }}</td>
+        <td>{{ profesor.facultad }}</td>
+        <td>{{ profesor.email }}</td>
+        <td>
+          <a class="link" (click)="openModalUpdate(profesor.cedula)">Edit</a> &nbsp;|&nbsp;
+          <a class="link" >Details</a> &nbsp;|&nbsp;
+          <a class="link" (click)="delete(profesor.cedula)">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #createProfesor let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Crear Profesor</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <div class="container-card-adduser">
+      <div class="card text-center">
+        <div class="card-header">
+          <b>REGISTER</b>
+        </div>
+        <div class="card-body p-4">
+          <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com" name="cedula" #cedula required [(ngModel)]="profesor.cedula">
+            <label for="floatingInput">Cedula</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="cedula" #cedula required [(ngModel)]="profesor.nombre">
+            <label for="floatingInput">Nombres</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="cedula" #cedula required [(ngModel)]="profesor.apellido">
+            <label for="floatingInput">Apellidos</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="cedula" #cedula required [(ngModel)]="profesor.facultad">
+            <label for="floatingInput">Facultad</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="cedula" #cedula required [(ngModel)]="profesor.email">
+            <label for="floatingInput">Email</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button style="width: 100%;" class="btn btn-primary btn-lg btn-block m-2" (click)="save()" >Crear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #updateProfesor let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Actualizar Profesor</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <div class="container-card-adduser">
+      <div class="card text-center">
+        <div class="card-header">
+          <b>UPDATE</b>
+        </div>
+        <div class="card-body p-4">
+          <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com" name="cedula" #cedula required [(ngModel)]="profesor.cedula" disabled>
+            <label for="floatingInput">Cedula</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="cedula" #cedula required [(ngModel)]="profesor.nombre">
+            <label for="floatingInput">Nombres</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="cedula" #cedula required [(ngModel)]="profesor.apellido">
+            <label for="floatingInput">Apellidos</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="cedula" #cedula required [(ngModel)]="profesor.facultad">
+            <label for="floatingInput">Facultad</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="cedula" #cedula required [(ngModel)]="profesor.email">
+            <label for="floatingInput">Email</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button style="width: 100%;" class="btn btn-primary btn-lg btn-block m-2" (click)="update()" >Actualizar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
