@@ -2,13 +2,13 @@
 Desarrollo de software seguro - guia 5
 
 # Crear base de datos
-create database GestionAcad;
-use GestionAcad;
-create table profesor(
-id integer primary key auto_increment,
-cedula int unique,
-nombre varchar(100),
-apellido varchar(100),
-facultad varchar(100),
-email varchar(100)
+create database GestionAcad;<br>
+use GestionAcad;<br>
+create table profesor(<br>
+&nbsp;id integer primary key auto_increment,<br>
+&nbsp;cedula int unique,<br>
+&nbsp;nombre varchar(100),<br>
+&nbsp;apellido varchar(100),<br>
+&nbsp;facultad varchar(100),<br>
+&nbsp;email varchar(100)<br>
 );
